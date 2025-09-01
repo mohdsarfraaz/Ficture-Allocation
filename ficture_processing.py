@@ -92,5 +92,4 @@ def ficture_allocation(df, status_placeholder):
     
     return df_1
 
-# --- Streamlit App UI ---
-st.title("Ficture Allocation with Live Timer")
+
