@@ -136,12 +136,6 @@ def apply_styles():
                 min-width: 0 !important;
             }
 
-            /* Expander arrow icon */
-            .stApp [data-testid="stExpander"] div[role="button"] svg {
-                flex-shrink: 0 !important;
-                margin-left: 16px !important; /* increased margin to avoid overlap */
-            }
-
             /* Dark mode overrides for expander */
             @media (prefers-color-scheme: dark) {
                 .stApp [data-testid="stExpander"] {
@@ -154,4 +148,5 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
 
