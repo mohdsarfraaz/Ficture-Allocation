@@ -10,7 +10,7 @@ import altair as alt
 from ficture_processing import ficture_allocation
 from style import apply_styles
 
-st.set_page_config(page_title="File Input", layout="wide")
+st.set_page_config(page_title="Ficture Allocation App", layout="wide")
 
 # Apply the custom styles from the separate file
 apply_styles()
@@ -37,7 +37,7 @@ def main():
     """
     Main function for the Streamlit application UI.
     """
-    st.title("Ficture Allocation App")
+    st.markdown("<h1>Ficture Allocation App</h1>", unsafe_allow_html=True)
     
     # --- UI for File Upload ---
     uploaded_file = st.file_uploader("📥 Upload your CSV or Excel file", type=['csv', 'xlsx', 'xls'])
@@ -47,15 +47,14 @@ def main():
         if df is not None:
             st.success("✅ File loaded successfully!")
             
-            # Display the dataframe preview first
-            st.write("Preview of the data:")
-            st.dataframe(df.head())
+            # Use st.expander for the preview to keep the UI clean
+            with st.expander("Preview of the Data"):
+                st.dataframe(df.head())
             
-            # --- Add vertical spacing here to prevent the visual overlap ---
-            st.text("")
+            st.divider() # Add a divider for better visual separation
             
             # --- User input for column names ---
-            st.subheader("⚙️ Map Your Columns")
+            st.markdown("<h3>⚙️ Map Your Columns</h3>", unsafe_allow_html=True)
             st.write("Please provide the exact column names from your file for the allocation logic.")
             
             # Use columns to organize the input fields
@@ -113,7 +112,10 @@ def main():
     if 'processed_df' in st.session_state:
         result_df = st.session_state['processed_df']
         col_map = st.session_state['cols']
-        st.write("📊 Processed Data:")
+        
+        st.divider() # Add a divider for better visual separation
+
+        st.markdown("<h3>📊 Processed Data:</h3>", unsafe_allow_html=True)
 
         # --- Filter section for processed data ---
         with st.expander("🔎 Filter Processed Data"):
@@ -139,7 +141,9 @@ def main():
         st.dataframe(filtered_df)
 
         # --- Visualization section ---
-        st.header("📈 Visualizations")
+        st.divider()
+        st.markdown("<h3>📈 Visualizations</h3>", unsafe_allow_html=True)
+
         with st.expander("View Visualizations"):
             chart1, chart2 = st.columns(2)
 
@@ -162,15 +166,13 @@ def main():
                 })
 
                 # Use Altair for more customization
-                chart = alt.Chart(pass_allocation).mark_bar().encode(
-                    x=alt.X('Pass', sort=None),
+                chart = alt.Chart(pass_allocation).mark_bar(color="#00f2fe", cornerRadius=5).encode(
+                    x=alt.X('Pass', sort=None, axis=alt.Axis(title=None)),
                     y=alt.Y('Allocation', title='Total Allocation'),
                     tooltip=['Pass', 'Allocation']
                 ).properties(
-                    title='Total Allocation by Pass',
-                    width=600,
-                    height=400
-                )
+                    title='Total Allocation by Pass'
+                ).interactive()
 
                 st.altair_chart(chart, use_container_width=True)
 
