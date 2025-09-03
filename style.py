@@ -108,33 +108,44 @@ def apply_styles():
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
 
-            /* Style for the expander container */
+            /* --- Expander Styling (Fix overlap issue) --- */
             .stApp [data-testid="stExpander"] {
-                background-color: #f0f2f6 !important; /* Light theme background */
                 border-radius: 8px;
                 margin-bottom: 8px;
-            }
-            
-            /* Style for the expander header (fixes overlap issue) */
-            .stApp [data-testid="stExpander"] div[role="button"] {
-                display: flex;
-                justify-content: space-between;  /* text left, arrow right */
-                align-items: center;
-                padding: 10px 14px;
-                font-weight: 600;
-                font-size: 16px;
-                border-radius: 8px;
+                background-color: #f0f2f6 !important;
             }
 
+            /* Expander header alignment */
+            .stApp [data-testid="stExpander"] div[role="button"] {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 10px 14px !important;
+                font-weight: 600 !important;
+                font-size: 16px !important;
+            }
+
+            /* Expander header text */
+            .stApp [data-testid="stExpander"] div[role="button"] p {
+                margin: 0 !important;
+                flex-grow: 1 !important;   /* pushes arrow away */
+            }
+
+            /* Expander arrow icon */
+            .stApp [data-testid="stExpander"] div[role="button"] svg {
+                flex-shrink: 0 !important;
+                margin-left: 8px !important;
+            }
+
+            /* Dark mode overrides for expander */
             @media (prefers-color-scheme: dark) {
                 .stApp [data-testid="stExpander"] {
-                    background-color: #262626 !important; /* Dark theme background */
+                    background-color: #262626 !important;
                 }
                 .stApp [data-testid="stExpander"] div[role="button"] {
                     background-color: #333 !important;
                     color: #f0f2f6 !important;
                 }
             }
-
         </style>
     """, unsafe_allow_html=True)
