@@ -123,18 +123,23 @@ def apply_styles():
                 padding: 10px 14px !important;
                 font-weight: 600 !important;
                 font-size: 16px !important;
+                min-width: 0 !important; /* allow flex children to shrink */
             }
 
-            /* Expander header text */
+            /* Expander header text (fix long name overlap) */
             .stApp [data-testid="stExpander"] div[role="button"] p {
                 margin: 0 !important;
                 flex-grow: 1 !important;   /* pushes arrow away */
+                overflow: hidden !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                min-width: 0 !important;
             }
 
             /* Expander arrow icon */
             .stApp [data-testid="stExpander"] div[role="button"] svg {
                 flex-shrink: 0 !important;
-                margin-left: 8px !important;
+                margin-left: 16px !important; /* increased margin to avoid overlap */
             }
 
             /* Dark mode overrides for expander */
