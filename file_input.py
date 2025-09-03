@@ -47,15 +47,18 @@ def main():
         if df is not None:
             st.success("✅ File loaded successfully!")
             
-            # Place the dataframe preview here, separated from the expander
+            # Display the dataframe preview first
             st.write("Preview of the data:")
             st.dataframe(df.head())
+            
+            # --- Add vertical spacing here to prevent the visual overlap ---
+            st.text("")
             
             # --- User input for column names ---
             st.subheader("⚙️ Map Your Columns")
             st.write("Please provide the exact column names from your file for the allocation logic.")
             
-            # Use columns to organize the input fields within the expander
+            # Use columns to organize the input fields
             with st.expander("Columns Mapping"):
                 # Use st.session_state to persist input values
                 if 'col_map' not in st.session_state:
