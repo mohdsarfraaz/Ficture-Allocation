@@ -154,3 +154,4 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
