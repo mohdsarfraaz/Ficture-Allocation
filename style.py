@@ -22,26 +22,36 @@ def apply_styles():
             .stApp > header {
                 background-color: #ffffff;
                 border-bottom: 1px solid #e0e0e0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             }
 
-            h1 {
+            h1, h2, h3, h4, h5, h6 {
                 color: #1a1a1a;
                 font-weight: 600;
-                text-align: center;
-                padding-bottom: 20px;
+                padding-bottom: 5px;
             }
             
             .stTextInput>div>div>input {
                 border-radius: 10px;
                 border: 1px solid #ccc;
                 padding: 8px;
-                transition: border-color 0.3s;
+                transition: border-color 0.3s, box-shadow 0.3s;
             }
             
             .stTextInput>div>div>input:focus {
                 border-color: #00f2fe;
                 box-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
                 outline: none;
+            }
+
+            /* Style for the expander content in light mode */
+            div[data-testid="stExpander"] div[role="region"] {
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                border: 1px solid #e0e0e0;
+                padding: 20px;
+                margin-top: 10px;
             }
 
             .stTabs [data-baseweb="tab-list"] button {
@@ -58,9 +68,10 @@ def apply_styles():
                 .stApp > header {
                     background-color: #262626 !important;
                     border-bottom: 1px solid #363636 !important;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 }
                 
-                h1 {
+                h1, h2, h3, h4, h5, h6 {
                     color: #f0f2f6 !important;
                 }
                 
@@ -74,9 +85,12 @@ def apply_styles():
                     border-color: #00f2fe !important;
                     box-shadow: 0 0 5px rgba(0, 242, 254, 0.5) !important;
                 }
-
+                
                 .stDataFrame {
                     background-color: #262626 !important;
+                    border-radius: 10px;
+                    border: 1px solid #363636;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
                 }
 
                 .stTabs [data-baseweb="tab-list"] button {
@@ -87,7 +101,9 @@ def apply_styles():
                 /* Corrected style for the expander container in dark mode */
                 div[data-testid="stExpander"] div[role="region"] {
                     background-color: #262626 !important;
-                    border-radius: 0 0 10px 10px;
+                    border-radius: 10px;
+                    border: 1px solid #363636 !important;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
                 }
             }
             
@@ -114,10 +130,5 @@ def apply_styles():
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
 
-            /* Corrected style for the expander container in light mode */
-            div[data-testid="stExpander"] div[role="region"] {
-                background-color: #ffffff;
-                border-radius: 0 0 10px 10px;
-            }
         </style>
     """, unsafe_allow_html=True)
