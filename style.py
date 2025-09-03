@@ -107,6 +107,17 @@ def apply_styles():
                 overflow: hidden;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
+            /* Style for the expander content in light and dark mode */
+            .stApp [data-testid="stExpander"] {
+                background-color: #f0f2f6 !important; /* Light theme background */
+            }
+            
+            @media (prefers-color-scheme: dark) {
+                .stApp [data-testid="stExpander"] {
+                    background-color: #262626 !important; /* Dark theme background */
+                }
+            }
 
         </style>
     """, unsafe_allow_html=True)
+
