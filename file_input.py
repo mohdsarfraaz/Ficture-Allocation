@@ -54,7 +54,7 @@ def main():
             st.write("Please provide the exact column names from your file for the allocation logic.")
             
             # Use columns to organize the input fields
-            with st.expander(""):
+            with st.expander("Columns Mapping"):
                 # Use st.session_state to persist input values
                 if 'col_map' not in st.session_state:
                     st.session_state['col_map'] = {
@@ -180,4 +180,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
