@@ -2,9 +2,7 @@ import streamlit as st
 
 def apply_styles():
     """
-    Applies custom CSS styles to the Streamlit application
-    with support for both light and dark themes, using
-    !important to override default Streamlit styles.
+    Applies custom CSS styles to the Streamlit application.
     """
     st.markdown("""
         <style>
@@ -14,7 +12,6 @@ def apply_styles():
                 font-family: 'Poppins', sans-serif;
             }
 
-            /* --- Light Theme Styles (Default) --- */
             .stApp {
                 background-color: #f0f2f6;
             }
@@ -31,66 +28,6 @@ def apply_styles():
                 padding-bottom: 20px;
             }
             
-            .stTextInput>div>div>input {
-                border-radius: 10px;
-                border: 1px solid #ccc;
-                padding: 8px;
-                transition: border-color 0.3s;
-            }
-            
-            .stTextInput>div>div>input:focus {
-                border-color: #00f2fe;
-                box-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
-                outline: none;
-            }
-
-            .stTabs [data-baseweb="tab-list"] button {
-                background-color: #ffffff;
-                border-radius: 10px 10px 0 0;
-            }
-            
-            /* --- Dark Theme Overrides --- */
-            @media (prefers-color-scheme: dark) {
-                .stApp {
-                    background-color: #1a1a1a !important;
-                }
-                
-                .stApp > header {
-                    background-color: #262626 !important;
-                    border-bottom: 1px solid #363636 !important;
-                }
-                
-                h1 {
-                    color: #f0f2f6 !important;
-                }
-                
-                .stTextInput>div>div>input {
-                    background-color: #262626 !important;
-                    border: 1px solid #444 !important;
-                    color: #f0f2f6 !important;
-                }
-                
-                .stTextInput>div>div>input:focus {
-                    border-color: #00f2fe !important;
-                    box-shadow: 0 0 5px rgba(0, 242, 254, 0.5) !important;
-                }
-
-                .stDataFrame {
-                    background-color: #262626 !important;
-                }
-
-                .stTabs [data-baseweb="tab-list"] button {
-                    background-color: #262626 !important;
-                    color: #f0f2f6 !important;
-                }
-
-                /* Corrected style for expander content */
-                div[data-testid="stExpander"] div[data-testid="stVerticalBlock"] {
-                    background-color: #262626 !important;
-                }
-            }
-            
-            /* --- Common Styles (apply to both themes) --- */
             .stButton>button {
                 width: 100%;
                 background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
@@ -107,14 +44,28 @@ def apply_styles():
                 transform: translateY(-2px);
             }
             
+            .stTextInput>div>div>input {
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                padding: 8px;
+                transition: border-color 0.3s;
+            }
+            
+            .stTextInput>div>div>input:focus {
+                border-color: #00f2fe;
+                box-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
+                outline: none;
+            }
+
             .stDataFrame {
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
-            /* Corrected style for expander content */
-            div[data-testid="stExpander"] div[data-testid="stVerticalBlock"] {
-                background-color: #f0f2f6; /* Light theme background */
+
+            .stTabs [data-baseweb="tab-list"] button {
+                background-color: #ffffff;
+                border-radius: 10px 10px 0 0;
             }
         </style>
     """, unsafe_allow_html=True)
