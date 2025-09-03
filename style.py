@@ -3,7 +3,8 @@ import streamlit as st
 def apply_styles():
     """
     Applies custom CSS styles to the Streamlit application
-    with support for both light and dark themes.
+    with support for both light and dark themes, using
+    !important to override default Streamlit styles.
     """
     st.markdown("""
         <style>
@@ -51,36 +52,36 @@ def apply_styles():
             /* --- Dark Theme Overrides --- */
             @media (prefers-color-scheme: dark) {
                 .stApp {
-                    background-color: #1a1a1a;
+                    background-color: #1a1a1a !important;
                 }
                 
                 .stApp > header {
-                    background-color: #262626;
-                    border-bottom: 1px solid #363636;
+                    background-color: #262626 !important;
+                    border-bottom: 1px solid #363636 !important;
                 }
                 
                 h1 {
-                    color: #f0f2f6;
+                    color: #f0f2f6 !important;
                 }
                 
                 .stTextInput>div>div>input {
-                    background-color: #262626;
-                    border: 1px solid #444;
-                    color: #f0f2f6;
+                    background-color: #262626 !important;
+                    border: 1px solid #444 !important;
+                    color: #f0f2f6 !important;
                 }
                 
                 .stTextInput>div>div>input:focus {
-                    border-color: #00f2fe;
-                    box-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
+                    border-color: #00f2fe !important;
+                    box-shadow: 0 0 5px rgba(0, 242, 254, 0.5) !important;
                 }
 
                 .stDataFrame {
-                    background-color: #262626;
+                    background-color: #262626 !important;
                 }
 
                 .stTabs [data-baseweb="tab-list"] button {
-                    background-color: #262626;
-                    color: #f0f2f6;
+                    background-color: #262626 !important;
+                    color: #f0f2f6 !important;
                 }
             }
             
