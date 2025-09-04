@@ -114,7 +114,7 @@ def apply_styles():
                 margin-bottom: 8px;
                 background-color: #f0f2f6 !important;
             }
-
+            
             /* Expander header alignment */
             .stApp [data-testid="stExpander"] div[role="button"] {
                 display: flex !important;
@@ -125,9 +125,9 @@ def apply_styles():
                 font-size: 16px !important;
                 min-width: 0 !important; /* allow flex children to shrink */
             }
-
-            /* Expander header text (fix long name overlap) */
-            .stApp [data-testid="stExpander"] div[role="button"] p {
+            
+            /* Expander header text only (prevent icons from being styled as text) */
+            .stApp [data-testid="stExpander"] div[role="button"] p:not([class*="st-emotion-cache"]) {
                 margin: 0 !important;
                 flex-grow: 1 !important;   /* pushes arrow away */
                 overflow: hidden !important;
@@ -135,7 +135,6 @@ def apply_styles():
                 text-overflow: ellipsis !important;
                 min-width: 0 !important;
             }
-
             /* Dark mode overrides for expander */
             @media (prefers-color-scheme: dark) {
                 .stApp [data-testid="stExpander"] {
@@ -148,5 +147,6 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
 
 
