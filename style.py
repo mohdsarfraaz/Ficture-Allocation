@@ -108,15 +108,23 @@ def apply_styles():
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
             
-            /* Expander header text only (prevent icons from being styled as text) */
-            .stApp [data-testid="stExpander"] div[role="button"] p:not([class*="st-emotion-cache"]) {
+            /* Target only the header text in st.expander */
+            .stApp [data-testid="stExpander"] div[role="button"] p {
                 margin: 0 !important;
-                flex-grow: 1 !important;   /* pushes arrow away */
+                flex-grow: 1 !important;
                 overflow: hidden !important;
                 white-space: nowrap !important;
                 text-overflow: ellipsis !important;
                 min-width: 0 !important;
             }
+            /* Explicitly make sure the arrow/icon is excluded */
+            .stApp [data-testid="stExpander"] div[role="button"] svg,
+            .stApp [data-testid="stExpander"] div[role="button"] [data-testid="stExpanderIconContainer"] {
+                flex-shrink: 0 !important;
+                min-width: 24px;   /* Adjust as needed */
+                margin-left: 8px;  /* Space between text and icon */
+            }
+
             /* Dark mode overrides for expander */
             @media (prefers-color-scheme: dark) {
                 .stApp [data-testid="stExpander"] {
@@ -129,6 +137,7 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
 
 
 
