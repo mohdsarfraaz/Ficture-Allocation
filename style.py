@@ -115,17 +115,6 @@ def apply_styles():
                 background-color: #f0f2f6 !important;
             }
             
-            /* Expander header alignment */
-            .stApp [data-testid="stExpander"] div[role="button"] {
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                padding: 10px 14px !important;
-                font-weight: 600 !important;
-                font-size: 16px !important;
-                min-width: 0 !important; /* allow flex children to shrink */
-            }
-            
             /* Expander header text only (prevent icons from being styled as text) */
             .stApp [data-testid="stExpander"] div[role="button"] p:not([class*="st-emotion-cache"]) {
                 margin: 0 !important;
@@ -147,6 +136,7 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
 
 
 
