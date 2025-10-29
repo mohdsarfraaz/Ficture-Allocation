@@ -37,7 +37,7 @@ def main():
     """
     Main function for the Streamlit application UI.
     """
-    st.markdown("<h1>Ficture Allocation App</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Fixture Allocation App</h1>", unsafe_allow_html=True)
     
     # --- UI for File Upload ---
     uploaded_file = st.file_uploader("📥 Upload your CSV or Excel file", type=['csv', 'xlsx', 'xls'])
@@ -187,4 +187,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
