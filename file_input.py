@@ -10,7 +10,7 @@ import altair as alt
 from ficture_processing import ficture_allocation
 from style import apply_styles
 
-st.set_page_config(page_title="Ficture Allocation App", layout="wide")
+st.set_page_config(page_title="Fixture Allocation App", layout="wide")
 
 # Apply the custom styles from the separate file
 apply_styles()
@@ -187,3 +187,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
