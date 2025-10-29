@@ -107,13 +107,6 @@ def apply_styles():
                 overflow: hidden;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             }
-
-            /* --- Expander Styling (Fix overlap issue) --- */
-            .stApp [data-testid="stExpander"] {
-                border-radius: 8px;
-                margin-bottom: 8px;
-                background-color: #f0f2f6 !important;
-            }
             
             /* Expander header text only (prevent icons from being styled as text) */
             .stApp [data-testid="stExpander"] div[role="button"] p:not([class*="st-emotion-cache"]) {
@@ -136,6 +129,7 @@ def apply_styles():
             }
         </style>
     """, unsafe_allow_html=True)
+
 
 
 
